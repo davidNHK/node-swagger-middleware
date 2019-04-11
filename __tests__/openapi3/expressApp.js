@@ -1,18 +1,18 @@
 const express = require("express")
 
-const { createExpressMiddleware } = require("../lib")
+const { createExpressMiddleware } = require("../../lib")
 const {
   ValidationError,
   SpecNotFoundError,
   AJVValidationError
-} = require("../lib/errors")
+} = require("../../lib/errors")
 
 module.exports.createExpressApp = async middlewareOptions => {
   const app = express()
   app.use(express.json())
   app.use(
     await createExpressMiddleware(
-      `${__dirname}/fixtures/index.yml`,
+      `${__dirname}/../fixtures/openapi3/index.yml`,
       middlewareOptions
     )
   )
@@ -24,41 +24,16 @@ module.exports.createExpressApp = async middlewareOptions => {
       whoareyou: name
     })
   })
-  app.get("/v1/response-schema-mismatch", (req, res) => {
-    const { name } = req.query
+
+  app.post("/v1/whoami", (req, res) => {
+    const { name } = req.body
     res.send({
       name: "Unit Testing",
       purpose: "Middleware for integrate express and OpenAPI",
       whoareyou: name
     })
   })
-  app.get("/echo", (req, res) => {
-    res.send({})
-  })
-  app.get("/v1/response-schema-extra-data", (req, res) => {
-    const { name } = req.query
-    res.send({
-      meta: {
-        status: 200
-      },
-      whoareyou: name,
-      data: {
-        name
-      }
-    })
-  })
-  app.get("/v1/response-schema-extra-data-with-content-type", (req, res) => {
-    const { name } = req.query
-    res.send({
-      meta: {
-        status: 200
-      },
-      whoareyou: name,
-      data: {
-        name
-      }
-    })
-  })
+
   app.use((err, req, res, next) => {
     if (err instanceof ValidationError) {
       res.status(400)

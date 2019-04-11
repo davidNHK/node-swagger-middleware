@@ -1,0 +1,55 @@
+openapi: "3.0.0"
+info:
+  title: Example of middleware for intergrate express + sway
+  version: 1.0.0
+paths:
+  /whoami:
+    get:
+      parameters:
+        - in: query
+          name: name
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: "yoyoyo"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  purpose:
+                    type: string
+                  whoareyou:
+                    type: string
+    post:
+      description: Test requestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                purpose:
+                  type: string
+                whoareyou:
+                  type: string
+              required:
+                - name
+      responses:
+        201:
+          description: create role success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  meta:
+                    type: string
+                  data:
+                    type: integer

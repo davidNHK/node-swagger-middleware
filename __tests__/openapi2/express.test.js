@@ -19,9 +19,11 @@ describe("Test Express Middleware", () => {
       middlewareOptions: {
         strictMode: false
       },
-      ajvOptions: {
+      ajvRequestOptions: {
+        useDefaults: true
+      },
+      ajvResponseOptions: {
         removeAdditional: true,
-        useDefaults: true,
         coerceTypes: true
       }
     })

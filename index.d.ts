@@ -6,7 +6,8 @@ export interface CreateMiddlewareOptions {
   swayOptions?: sway.CreateOptions;
   swayValidateRequestOptions?: sway.RequestValidationOptions;
   swayValidateResponseOptions?: sway.ResponseValidationOptions;
-  ajvOptions?: ajv.Options;
+  ajvRequestOptions?: ajv.Options;
+  ajvResponseOptions?: ajv.Options;
   middlewareOptions?: {
     strictMode: boolean;
   };
