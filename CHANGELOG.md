@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/davidNHK/node-swagger-middleware/compare/v0.5.1...v1.0.0) (2019-04-11)
+
+
+### Bug Fixes
+
+* chunk string issue ([#5](https://github.com/davidNHK/node-swagger-middleware/issues/5)) ([e61937c](https://github.com/davidNHK/node-swagger-middleware/commit/e61937c))
+
+
+### Features
+
+* support openapi3 requestBody ([cdad531](https://github.com/davidNHK/node-swagger-middleware/commit/cdad531))
+
+
+
 <a name="0.5.1"></a>
 ## [0.5.1](https://github.com/davidNHK/node-swagger-middleware/compare/v0.5.0...v0.5.1) (2019-03-05)
 
