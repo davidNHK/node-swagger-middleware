@@ -5743,10 +5743,10 @@ supports-color@^5.2.0, supports-color@^5.3.0:
   dependencies:
     has-flag "^3.0.0"
 
-swagger-combine@^0.19.0:
-  version "0.19.0"
-  resolved "https://registry.yarnpkg.com/swagger-combine/-/swagger-combine-0.19.0.tgz#df469e5605f6ed5c21710f31feb7ce337702560a"
-  integrity sha512-Vc4tToRmC0sQ5KEwtWVIu+Uz0feIhUOI4gZIx7sjJZR+jEM69C3who21weAbJs6UA+BMNcM6IRDHi6tD6CQUkg==
+swagger-combine@^0.21.0:
+  version "0.21.0"
+  resolved "https://registry.yarnpkg.com/swagger-combine/-/swagger-combine-0.21.0.tgz#0fb4fe0aa191abe221c9353cf343bde2eeea380d"
+  integrity sha512-7/HxRlFIUU63ANXASDtJzYK009bU/cFnbUgletUPTKsXhou6sWGIoG2KBJjkOkSHM22wYrVKyU666NiCGVYoYQ==
   dependencies:
     call-me-maybe "^1.0.1"
     json-schema-ref-parser "^6.0.1"
