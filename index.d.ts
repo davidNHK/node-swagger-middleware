@@ -13,14 +13,13 @@ interface CreateMiddlewareOptions {
   }
 }
 
-interface ValidationError extends Error {
+export interface ValidationError extends Error {
   errors: sway.ValidationEntry[]
-  new (swayError: sway.ValidationResults)
 }
-interface AJVValidationError extends Error {
+export interface AJVValidationError extends Error {
   errors: ajv.ErrorObject[]
 }
-interface SpecNotFoundError extends Error {
+export interface SpecNotFoundError extends Error {
   method: string
   path: string
 }
