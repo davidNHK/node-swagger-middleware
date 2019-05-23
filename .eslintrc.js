@@ -17,6 +17,9 @@ module.exports = {
         "@typescript-eslint/no-var-requires": "off"
       }
     },
-    { files: ["*.ts"], rules: { "no-useless-constructor": "off" } }
+    {
+      files: ["*.ts"],
+      rules: { "no-useless-constructor": "off", "import/group-exports": "off" }
+    }
   ]
 }
