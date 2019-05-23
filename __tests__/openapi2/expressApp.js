@@ -72,6 +72,7 @@ module.exports.createExpressApp = async middlewareOptions => {
     res.send({
       err
     })
+    next()
   })
   return app
 }
