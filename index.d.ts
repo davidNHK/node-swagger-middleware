@@ -26,7 +26,7 @@ interface SpecNotFoundError extends Error {
 }
 
 interface CreateExpressMiddleware {
-  (swaggerIndexFile: string, options: CreateMiddlewareOptions): Promise<
+  (swaggerObject: object, options: CreateMiddlewareOptions): Promise<
     express.RequestHandler
   >
 }

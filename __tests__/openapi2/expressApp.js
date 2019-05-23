@@ -1,3 +1,4 @@
+const swaggerCombine = require("swagger-combine")
 const express = require("express")
 
 const { createExpressMiddleware } = require("../../lib")
@@ -12,7 +13,7 @@ module.exports.createExpressApp = async middlewareOptions => {
   app.use(express.json())
   app.use(
     await createExpressMiddleware(
-      `${__dirname}/../fixtures/openapi2/index.yml`,
+      await swaggerCombine(`${__dirname}/../fixtures/openapi2/index.yml`),
       middlewareOptions
     )
   )
