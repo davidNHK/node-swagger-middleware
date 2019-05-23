@@ -19,23 +19,23 @@ interface ValidationError extends Error {
 }
 interface AJVValidationError extends Error {
   errors: ajv.ErrorObject[]
-  new (ajvError: ajv.ErrorObject[])
 }
 interface SpecNotFoundError extends Error {
-  new (method: string, path: string)
+  method: string
+  path: string
 }
 
 interface CreateExpressMiddleware {
-  (swaggerObject: object, options: CreateMiddlewareOptions): Promise<
+  (swaggerObject: object, options?: CreateMiddlewareOptions): Promise<
     express.RequestHandler
   >
 }
 
 declare const middleware: {
   createExpressMiddleware: CreateExpressMiddleware
-  ValidationError: ValidationError
-  AJVValidationError: AJVValidationError
-  SpecNotFoundError: SpecNotFoundError
+  ValidationError: { new (swayError: sway.ValidationResults): ValidationError }
+  AJVValidationError: { new (ajvError: ajv.ErrorObject[]): AJVValidationError }
+  SpecNotFoundError: { new (method: string, path: string): SpecNotFoundError }
 }
 
 export default middleware
