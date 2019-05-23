@@ -18,7 +18,7 @@
   },
   "scripts": {
     "test": "jest --coverage",
-    "lint": "eslint --ext={.js,.ts} ./",
+    "lint": "eslint --ext .js --ext .ts ./",
     "release": "standard-version"
   },
   "dependencies": {
