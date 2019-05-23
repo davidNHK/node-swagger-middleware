@@ -9,6 +9,10 @@
     "type": "git",
     "url": "https://github.com/davidNHK/node-swagger-middleware"
   },
+  "files": [
+    "./lib/",
+    "./index.d.ts"
+  ],
   "engines": {
     "node": ">=8.0.0"
   },
