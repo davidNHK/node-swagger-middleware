@@ -1,27 +1,41 @@
-import * as ajv from "ajv";
-import * as express from "express";
-import * as sway from "sway";
+import * as ajv from "ajv"
+import * as express from "express"
+import * as sway from "sway"
 
-export interface CreateMiddlewareOptions {
-  swayOptions?: sway.CreateOptions;
-  swayValidateRequestOptions?: sway.RequestValidationOptions;
-  swayValidateResponseOptions?: sway.ResponseValidationOptions;
-  ajvRequestOptions?: ajv.Options;
-  ajvResponseOptions?: ajv.Options;
+interface CreateMiddlewareOptions {
+  swayOptions?: sway.CreateOptions
+  swayValidateRequestOptions?: sway.RequestValidationOptions
+  swayValidateResponseOptions?: sway.ResponseValidationOptions
+  ajvRequestOptions?: ajv.Options
+  ajvResponseOptions?: ajv.Options
   middlewareOptions?: {
-    strictMode: boolean;
-  };
+    strictMode: boolean
+  }
 }
-export class ValidationError extends Error {
-  public errors: sway.ValidationEntry[];
-  constructor(swayError: sway.ValidationResults)
+
+interface ValidationError extends Error {
+  errors: sway.ValidationEntry[]
+  new (swayError: sway.ValidationResults)
 }
-export class AJVValidationError extends Error {
-  public errors: ajv.ErrorObject[];
-  constructor(ajvError: ajv.ErrorObject[]);
+interface AJVValidationError extends Error {
+  errors: ajv.ErrorObject[]
+  new (ajvError: ajv.ErrorObject[])
 }
-export class SpecNotFoundError extends Error {
-  constructor(method: string, path: string)
+interface SpecNotFoundError extends Error {
+  new (method: string, path: string)
 }
-export function createExpressMiddleware(swaggerIndexFile: string, options: CreateMiddlewareOptions):
-(req: express.Request, res: express.Response, next: express.NextFunction) => Promise<void>;
+
+interface CreateExpressMiddleware {
+  (swaggerIndexFile: string, options: CreateMiddlewareOptions): Promise<
+    express.RequestHandler
+  >
+}
+
+declare const middleware: {
+  createExpressMiddleware: CreateExpressMiddleware
+  ValidationError: ValidationError
+  AJVValidationError: AJVValidationError
+  SpecNotFoundError: SpecNotFoundError
+}
+
+export = middleware
