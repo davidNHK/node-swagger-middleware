@@ -43,7 +43,7 @@
     "prettier": "1.16.1",
     "standard-version": "4.4.0",
     "supertest": "3.4.2",
-    "swagger-combine": "^0.21.0",
+    "swagger-combine": "0.21.0",
     "typescript": "3.3.3333"
   },
   "husky": {
