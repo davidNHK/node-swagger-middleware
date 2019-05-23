@@ -38,4 +38,4 @@ declare const middleware: {
   SpecNotFoundError: SpecNotFoundError
 }
 
-export = middleware
+export default middleware
