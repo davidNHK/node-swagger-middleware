@@ -1,6 +1,6 @@
 {
   "name": "node-swagger-middleware",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "main": "lib/index.js",
   "typings": "./index.d.ts",
   "author": "David Ng <davidng@hk01.com>",
@@ -10,8 +10,8 @@
     "url": "https://github.com/davidNHK/node-swagger-middleware"
   },
   "files": [
-    "./lib/",
-    "./index.d.ts"
+    "lib/",
+    "index.d.ts"
   ],
   "engines": {
     "node": ">=8.0.0"

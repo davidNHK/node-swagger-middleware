@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/davidNHK/node-swagger-middleware/compare/v1.0.0...v2.0.0) (2019-05-23)
+
+
+### Bug Fixes
+
+* **deps:** update dependency swagger-combine to ^0.21.0 ([a6caaf6](https://github.com/davidNHK/node-swagger-middleware/commit/a6caaf6))
+
+
+### Features
+
+* remove swagger-combine ([b4e1690](https://github.com/davidNHK/node-swagger-middleware/commit/b4e1690))
+
+
+### BREAKING CHANGES
+
+* constructor now expect get combined swagger object instead of index file
+
+
+
 <a name="1.0.0"></a>
 # [1.0.0](https://github.com/davidNHK/node-swagger-middleware/compare/v0.5.1...v1.0.0) (2019-04-11)
 
