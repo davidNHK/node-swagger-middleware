@@ -1,6 +1,15 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [2.1.1](https://github.com/davidNHK/node-swagger-middleware/compare/v2.1.0...v2.1.1) (2019-07-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency lodash to v4.17.13 [security] ([4f60be1](https://github.com/davidNHK/node-swagger-middleware/commit/4f60be1))
+
+
 
 <a name="2.1.0"></a>
 # [2.1.0](https://github.com/davidNHK/node-swagger-middleware/compare/v2.0.2...v2.1.0) (2019-05-23)
