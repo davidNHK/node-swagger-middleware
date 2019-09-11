@@ -6,8 +6,10 @@ node_js:
   - "8"
 env:
   - NODE_ENV=test
+before_install:
+  - sh ./scripts/ci-setup
 install:
-  - ". ./scripts/setup"
+  - sh ./scripts/setup
 jobs:
   include:
     - stage: test
