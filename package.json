@@ -19,7 +19,7 @@
   "scripts": {
     "test": "jest --coverage",
     "lint": "eslint --ext .js --ext .ts ./",
-    "release": "standard-version"
+    "release": "standard-version --commit-all --message 'chore(production): %s\\n\\n[skip master-ci]' --no-verify"
   },
   "dependencies": {
     "ajv": "^6.9.2",
