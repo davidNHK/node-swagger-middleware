@@ -7,22 +7,22 @@ node_js:
 env:
   - NODE_ENV=test
 before_install:
-  - sh ./scripts/ci-setup
+  - bash ./scripts/ci-setup
 install:
-  - sh ./scripts/setup
+  - bash ./scripts/setup
 jobs:
   include:
     - stage: test
       language: node_js
       script:
-        - sh scripts/lint
-        - sh scripts/test
+        - bash scripts/lint
+        - bash scripts/test
         - npx codecov
 
     - stage: deploy
       language: node_js
       script:
-        - sh scripts/release
+        - bash scripts/release
       skip_cleanup: true
       on:
         all_branches: true
