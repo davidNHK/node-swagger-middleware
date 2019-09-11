@@ -1,3 +1,5 @@
-#!/bin/sh -ex
+#!/bin/bash -ex
+
+set -ex
 
 echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc
