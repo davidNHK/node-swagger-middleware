@@ -3,8 +3,8 @@ module.exports = {
   testRegex: "__tests__/.*.test.js$",
   coverageThreshold: {
     global: {
-      statements: 100,
-      branches: 89,
+      statements: 99,
+      branches: 97,
       lines: 100,
       functions: 100
     }
