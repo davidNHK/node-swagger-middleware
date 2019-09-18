@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.3.0](https://github.com/davidNHK/node-swagger-middleware/compare/v2.2.2...v2.3.0) (2019-09-17)
+
+
+### Features
+
+* support discriminator ([7519293](https://github.com/davidNHK/node-swagger-middleware/commit/7519293))
+
 ### [2.2.2](https://github.com/davidNHK/node-swagger-middleware/compare/v2.2.1...v2.2.2) (2019-09-11)
 
 
