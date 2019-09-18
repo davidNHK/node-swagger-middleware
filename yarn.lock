@@ -6261,7 +6261,7 @@ redent@^2.0.0:
     indent-string "^3.0.0"
     strip-indent "^2.0.0"
 
-redoc-cli@^0.8.6:
+redoc-cli@0.8.6:
   version "0.8.6"
   resolved "https://registry.yarnpkg.com/redoc-cli/-/redoc-cli-0.8.6.tgz#3f870fa6d57afd3b0a7843c0954502c6d36a562c"
   integrity sha512-YjwSts4Yh7mUYYsq064ElNI4xAETPRUIq76A51sZpGZ0+36+2elo23oQYAzCSOBX7/Bj6W5vzMHaPPDewFnZbg==
