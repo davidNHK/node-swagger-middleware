@@ -52,7 +52,7 @@
     "standard-version": "7.0.0",
     "supertest": "4.0.2",
     "swagger-combine": "1.0.0",
-    "typescript": "3.6.3"
+    "typescript": "3.6.4"
   },
   "husky": {
     "hooks": {
