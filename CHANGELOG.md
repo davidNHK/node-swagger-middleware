@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.3.3](https://github.com/davidNHK/node-swagger-middleware/compare/v2.3.2...v2.3.3) (2019-10-17)
+
+
+### Bug Fixes
+
+* cannot handle more than one request ([f82296d](https://github.com/davidNHK/node-swagger-middleware/commit/f82296d))
+
 ### [2.3.2](https://github.com/davidNHK/node-swagger-middleware/compare/v2.3.1...v2.3.2) (2019-10-17)
 
 ### [2.3.1](https://github.com/davidNHK/node-swagger-middleware/compare/v2.3.0...v2.3.1) (2019-09-18)
