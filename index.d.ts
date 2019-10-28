@@ -11,17 +11,6 @@ interface CreateMiddlewareOptions {
   middlewareOptions?: {
     strictMode: boolean
   }
-  resolvers?: {
-    [key: string]: (
-      req: express.Request,
-      discriminator: {
-        propertyName: string
-        mapping: {
-          [key: string]: string
-        }
-      }
-    ) => void
-  }
 }
 
 export interface ValidationError extends Error {
