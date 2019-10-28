@@ -27,11 +27,13 @@ describe("Test Express Middleware", () => {
     })
   })
 
-  it("Post a normal user", async () => {
+  it("Post a normal user A", async () => {
     const response = await request(app)
       .post("/v1/user")
       .send({
-        type: "normal"
+        type: "normal",
+        subType: "A",
+        telphone: "1234567"
       })
     expect(response.status).toEqual(200)
   })

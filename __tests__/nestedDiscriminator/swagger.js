@@ -6,6 +6,19 @@ const user = {
   },
   type: {
     type: "string"
+  },
+  subType: { type: "string" }
+}
+
+const userA = {
+  telphone: {
+    type: "string"
+  }
+}
+
+const userB = {
+  address: {
+    type: "string"
   }
 }
 
@@ -20,11 +33,34 @@ const schema = {
   components: {
     schemas: {
       NormalUser: {
+        oneOf: [
+          { $ref: "#/components/schemas/NormalUserA" },
+          { $ref: "#/components/schemas/NormalUserB" }
+        ],
+        discriminator: {
+          propertyName: "subType",
+          mapping: {
+            A: "#/components/schemas/NormalUserA",
+            B: "#/components/schemas/NormalUserB"
+          }
+        },
+        required: ["type", "subType"]
+      },
+      NormalUserA: {
         type: "object",
         properties: {
-          ...user
+          ...user,
+          ...userA
         },
-        required: ["type"]
+        required: ["type", "telphone"]
+      },
+      NormalUserB: {
+        type: "object",
+        properties: {
+          ...user,
+          ...userB
+        },
+        required: ["type", "address"]
       },
       AdminUser: {
         type: "object",
@@ -34,7 +70,7 @@ const schema = {
             type: "string"
           }
         },
-        required: ["type", "staffId"]
+        required: ["type"]
       }
     }
   },
