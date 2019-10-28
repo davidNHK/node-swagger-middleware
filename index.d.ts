@@ -24,6 +24,12 @@ export interface SpecNotFoundError extends Error {
   path: string
 }
 
+export interface DiscriminatorMappingNotFoundError extends Error {
+  discriminator: object
+  propertyValue: string
+  resolvers: object
+}
+
 interface CreateExpressMiddleware {
   (swaggerObject: object, options?: CreateMiddlewareOptions): Promise<
     express.RequestHandler
@@ -35,6 +41,13 @@ declare const middleware: {
   ValidationError: { new (swayError: sway.ValidationResults): ValidationError }
   AJVValidationError: { new (ajvError: ajv.ErrorObject[]): AJVValidationError }
   SpecNotFoundError: { new (method: string, path: string): SpecNotFoundError }
+  DiscriminatorMappingNotFoundError: {
+    new (
+      discriminator: object,
+      propertyValue: string,
+      resolvers: object
+    ): DiscriminatorMappingNotFoundError
+  }
 }
 
 export default middleware
