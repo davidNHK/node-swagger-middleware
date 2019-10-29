@@ -1,25 +1,40 @@
 const swaggerCombine = require("swagger-combine")
 
-const user = {
+const admin = {
   email: {
     type: "string"
   },
   type: {
     type: "string"
   },
+  staffId: {
+    type: "string"
+  }
+}
+
+const staff = {
+  email: {
+    type: "string"
+  },
+  type: {
+    type: "string"
+  }
+}
+
+const normalStaff = {
+  ...staff,
+  telephone: {
+    type: "string"
+  },
   subType: { type: "string" }
 }
 
-const userA = {
-  telphone: {
-    type: "string"
-  }
-}
-
-const userB = {
+const supervisorStaff = {
+  ...staff,
   address: {
     type: "string"
-  }
+  },
+  subType: { type: "string" }
 }
 
 const schema = {
@@ -32,43 +47,35 @@ const schema = {
   servers: [{ url: "/v1" }],
   components: {
     schemas: {
-      NormalUser: {
+      Staff: {
+        type: "object",
         oneOf: [
-          { $ref: "#/components/schemas/NormalUserA" },
-          { $ref: "#/components/schemas/NormalUserB" }
+          { $ref: "#/components/schemas/NormalStaff" },
+          { $ref: "#/components/schemas/SupervisorStaff" }
         ],
         discriminator: {
           propertyName: "subType",
           mapping: {
-            A: "#/components/schemas/NormalUserA",
-            B: "#/components/schemas/NormalUserB"
+            A: "#/components/schemas/NormalStaff",
+            B: "#/components/schemas/SupervisorStaff"
           }
         },
-        required: ["type", "subType"]
+        required: ["subType"]
       },
-      NormalUserA: {
+      NormalStaff: {
+        type: "object",
+        properties: normalStaff,
+        required: ["telephone"]
+      },
+      SupervisorStaff: {
+        type: "object",
+        properties: supervisorStaff,
+        required: ["address"]
+      },
+      Admin: {
         type: "object",
         properties: {
-          ...user,
-          ...userA
-        },
-        required: ["type", "telphone"]
-      },
-      NormalUserB: {
-        type: "object",
-        properties: {
-          ...user,
-          ...userB
-        },
-        required: ["type", "address"]
-      },
-      AdminUser: {
-        type: "object",
-        properties: {
-          ...user,
-          staffId: {
-            type: "string"
-          }
+          ...admin
         },
         required: ["type"]
       }
@@ -77,23 +84,28 @@ const schema = {
   paths: {
     "/user": {
       post: {
+        operationId: "createUser",
+        tags: ["user"],
+        description: "Endpoint for create user",
         requestBody: {
+          description: "Create User Payload",
           content: {
             "application/json": {
               schema: {
+                type: "object",
                 oneOf: [
                   {
-                    $ref: "#/components/schemas/NormalUser"
+                    $ref: "#/components/schemas/Staff"
                   },
                   {
-                    $ref: "#/components/schemas/AdminUser"
+                    $ref: "#/components/schemas/Admin"
                   }
                 ],
                 discriminator: {
                   propertyName: "type",
                   mapping: {
-                    normal: "#/components/schemas/NormalUser",
-                    admin: "#/components/schemas/AdminUser"
+                    staff: "#/components/schemas/Staff",
+                    admin: "#/components/schemas/Admin"
                   }
                 }
               }
@@ -102,23 +114,24 @@ const schema = {
         },
         responses: {
           "200": {
-            description: "Dynamic response payload",
+            description: "Create user response",
             content: {
               "application/json": {
                 schema: {
+                  type: "object",
                   oneOf: [
                     {
-                      $ref: "#/components/schemas/NormalUser"
+                      $ref: "#/components/schemas/Staff"
                     },
                     {
-                      $ref: "#/components/schemas/AdminUser"
+                      $ref: "#/components/schemas/Admin"
                     }
                   ],
                   discriminator: {
                     propertyName: "type",
                     mapping: {
-                      normal: "#/components/schemas/NormalUser",
-                      admin: "#/components/schemas/AdminUser"
+                      staff: "#/components/schemas/Staff",
+                      admin: "#/components/schemas/Admin"
                     }
                   }
                 }
