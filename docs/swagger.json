@@ -1,0 +1,283 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Example for discriminator",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "/v1"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "NormalUser": {
+        "type": "object",
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "email": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "telephone": {
+                "type": "string"
+              },
+              "subType": {
+                "type": "string"
+              }
+            },
+            "required": ["type", "telephone"]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "email": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "address": {
+                "type": "string"
+              },
+              "subType": {
+                "type": "string"
+              }
+            },
+            "required": ["type", "address"]
+          }
+        ],
+        "discriminator": {
+          "propertyName": "subType",
+          "mapping": {
+            "A": "#/components/schemas/NormalUserA",
+            "B": "#/components/schemas/NormalUserB"
+          }
+        },
+        "required": ["type", "subType"]
+      },
+      "NormalUserA": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "telephone": {
+            "type": "string"
+          },
+          "subType": {
+            "type": "string"
+          }
+        },
+        "required": ["type", "telephone"]
+      },
+      "NormalUserB": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "subType": {
+            "type": "string"
+          }
+        },
+        "required": ["type", "address"]
+      },
+      "AdminUser": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "staffId": {
+            "type": "string"
+          }
+        },
+        "required": ["type"]
+      }
+    }
+  },
+  "paths": {
+    "/user": {
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "oneOf": [
+                      {
+                        "properties": {
+                          "email": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "telephone": {
+                            "type": "string"
+                          },
+                          "subType": {
+                            "type": "string"
+                          }
+                        },
+                        "required": ["type", "telephone"]
+                      },
+                      {
+                        "properties": {
+                          "email": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "address": {
+                            "type": "string"
+                          },
+                          "subType": {
+                            "type": "string"
+                          }
+                        },
+                        "required": ["type", "address"]
+                      }
+                    ],
+                    "discriminator": {
+                      "propertyName": "subType",
+                      "mapping": {
+                        "A": "#/components/schemas/NormalUserA",
+                        "B": "#/components/schemas/NormalUserB"
+                      }
+                    },
+                    "required": ["type", "subType"]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "email": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "staffId": {
+                        "type": "string"
+                      }
+                    },
+                    "required": ["type"]
+                  }
+                ],
+                "discriminator": {
+                  "propertyName": "type",
+                  "mapping": {
+                    "normal": "#/components/schemas/NormalUser",
+                    "admin": "#/components/schemas/AdminUser"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Dynamic response payload",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "oneOf": [
+                        {
+                          "properties": {
+                            "email": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string"
+                            },
+                            "telephone": {
+                              "type": "string"
+                            },
+                            "subType": {
+                              "type": "string"
+                            }
+                          },
+                          "required": ["type", "telephone"]
+                        },
+                        {
+                          "properties": {
+                            "email": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string"
+                            },
+                            "address": {
+                              "type": "string"
+                            },
+                            "subType": {
+                              "type": "string"
+                            }
+                          },
+                          "required": ["type", "address"]
+                        }
+                      ],
+                      "discriminator": {
+                        "propertyName": "subType",
+                        "mapping": {
+                          "A": "#/components/schemas/NormalUserA",
+                          "B": "#/components/schemas/NormalUserB"
+                        }
+                      },
+                      "required": ["type", "subType"]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "email": {
+                          "type": "string"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "staffId": {
+                          "type": "string"
+                        }
+                      },
+                      "required": ["type"]
+                    }
+                  ],
+                  "discriminator": {
+                    "propertyName": "type",
+                    "mapping": {
+                      "normal": "#/components/schemas/NormalUser",
+                      "admin": "#/components/schemas/AdminUser"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

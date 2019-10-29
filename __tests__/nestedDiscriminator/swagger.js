@@ -1,25 +1,35 @@
 const swaggerCombine = require("swagger-combine")
 
+const admin = {
+  email: {
+    type: "string"
+  },
+  type: {
+    type: "string"
+  }
+}
+
 const user = {
   email: {
     type: "string"
   },
   type: {
     type: "string"
-  },
-  subType: { type: "string" }
+  }
 }
 
 const userA = {
-  telphone: {
+  telephone: {
     type: "string"
-  }
+  },
+  subType: { type: "string" }
 }
 
 const userB = {
   address: {
     type: "string"
-  }
+  },
+  subType: { type: "string" }
 }
 
 const schema = {
@@ -33,6 +43,7 @@ const schema = {
   components: {
     schemas: {
       NormalUser: {
+        type: "object",
         oneOf: [
           { $ref: "#/components/schemas/NormalUserA" },
           { $ref: "#/components/schemas/NormalUserB" }
@@ -52,7 +63,7 @@ const schema = {
           ...user,
           ...userA
         },
-        required: ["type", "telphone"]
+        required: ["type", "telephone"]
       },
       NormalUserB: {
         type: "object",
@@ -65,7 +76,7 @@ const schema = {
       AdminUser: {
         type: "object",
         properties: {
-          ...user,
+          ...admin,
           staffId: {
             type: "string"
           }
@@ -81,6 +92,7 @@ const schema = {
           content: {
             "application/json": {
               schema: {
+                type: "object",
                 oneOf: [
                   {
                     $ref: "#/components/schemas/NormalUser"

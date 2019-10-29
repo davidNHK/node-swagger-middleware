@@ -13,18 +13,21 @@ interface CreateMiddlewareOptions {
   }
 }
 
-export interface ValidationError extends Error {
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface BaseError extends Error {}
+
+export interface ValidationError extends BaseError {
   errors: sway.ValidationEntry[]
 }
-export interface AJVValidationError extends Error {
+export interface AJVValidationError extends BaseError {
   errors: ajv.ErrorObject[]
 }
-export interface SpecNotFoundError extends Error {
+export interface SpecNotFoundError extends BaseError {
   method: string
   path: string
 }
 
-export interface DiscriminatorMappingNotFoundError extends Error {
+export interface DiscriminatorMappingNotFoundError extends BaseError {
   discriminator: object
   propertyValue: string
   resolvers: object
@@ -41,6 +44,7 @@ declare const middleware: {
   ValidationError: { new (swayError: sway.ValidationResults): ValidationError }
   AJVValidationError: { new (ajvError: ajv.ErrorObject[]): AJVValidationError }
   SpecNotFoundError: { new (method: string, path: string): SpecNotFoundError }
+  BaseError: { new (): BaseError }
   DiscriminatorMappingNotFoundError: {
     new (
       discriminator: object,
