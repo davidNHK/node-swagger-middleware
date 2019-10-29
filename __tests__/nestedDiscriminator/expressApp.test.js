@@ -31,9 +31,9 @@ describe("Test Express Middleware", () => {
     const response = await request(app)
       .post("/v1/user")
       .send({
-        type: "normal",
+        type: "staff",
         subType: "A",
-        telphone: "1234567"
+        telephone: "1234567"
       })
     expect(response.status).toEqual(200)
   })
