@@ -33,7 +33,7 @@ describe("Test Express Middleware", () => {
       .send({
         type: "normal",
         subType: "A",
-        telphone: "1234567"
+        telephone: "1234567"
       })
     expect(response.status).toEqual(200)
   })
