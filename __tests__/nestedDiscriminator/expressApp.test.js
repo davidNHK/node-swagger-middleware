@@ -31,7 +31,7 @@ describe("Test Express Middleware", () => {
     const response = await request(app)
       .post("/v1/user")
       .send({
-        type: "normal",
+        type: "staff",
         subType: "A",
         telephone: "1234567"
       })

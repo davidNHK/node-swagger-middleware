@@ -4,6 +4,7 @@
     "title": "Example for discriminator",
     "version": "1.0.0"
   },
+  "basePath": "/v1",
   "servers": [
     {
       "url": "/v1"
@@ -11,11 +12,9 @@
   ],
   "components": {
     "schemas": {
-      "NormalUser": {
-        "type": "object",
+      "Staff": {
         "oneOf": [
           {
-            "type": "object",
             "properties": {
               "email": {
                 "type": "string"
@@ -30,10 +29,9 @@
                 "type": "string"
               }
             },
-            "required": ["type", "telephone"]
+            "required": ["telephone"]
           },
           {
-            "type": "object",
             "properties": {
               "email": {
                 "type": "string"
@@ -48,20 +46,19 @@
                 "type": "string"
               }
             },
-            "required": ["type", "address"]
+            "required": ["address"]
           }
         ],
         "discriminator": {
           "propertyName": "subType",
           "mapping": {
-            "A": "#/components/schemas/NormalUserA",
-            "B": "#/components/schemas/NormalUserB"
+            "A": "#/components/schemas/NormalStaff",
+            "B": "#/components/schemas/SupervisorStaff"
           }
         },
-        "required": ["type", "subType"]
+        "required": ["subType"]
       },
-      "NormalUserA": {
-        "type": "object",
+      "NormalStaff": {
         "properties": {
           "email": {
             "type": "string"
@@ -76,10 +73,9 @@
             "type": "string"
           }
         },
-        "required": ["type", "telephone"]
+        "required": ["telephone"]
       },
-      "NormalUserB": {
-        "type": "object",
+      "SupervisorStaff": {
         "properties": {
           "email": {
             "type": "string"
@@ -94,10 +90,9 @@
             "type": "string"
           }
         },
-        "required": ["type", "address"]
+        "required": ["address"]
       },
-      "AdminUser": {
-        "type": "object",
+      "Admin": {
         "properties": {
           "email": {
             "type": "string"
@@ -116,7 +111,11 @@
   "paths": {
     "/user": {
       "post": {
+        "operationId": "createUser",
+        "tags": ["user"],
+        "description": "Endpoint for create user",
         "requestBody": {
+          "description": "Create User Payload",
           "content": {
             "application/json": {
               "schema": {
@@ -139,7 +138,7 @@
                             "type": "string"
                           }
                         },
-                        "required": ["type", "telephone"]
+                        "required": ["telephone"]
                       },
                       {
                         "properties": {
@@ -156,20 +155,19 @@
                             "type": "string"
                           }
                         },
-                        "required": ["type", "address"]
+                        "required": ["address"]
                       }
                     ],
                     "discriminator": {
                       "propertyName": "subType",
                       "mapping": {
-                        "A": "#/components/schemas/NormalUserA",
-                        "B": "#/components/schemas/NormalUserB"
+                        "A": "#/components/schemas/NormalStaff",
+                        "B": "#/components/schemas/SupervisorStaff"
                       }
                     },
-                    "required": ["type", "subType"]
+                    "required": ["subType"]
                   },
                   {
-                    "type": "object",
                     "properties": {
                       "email": {
                         "type": "string"
@@ -187,8 +185,8 @@
                 "discriminator": {
                   "propertyName": "type",
                   "mapping": {
-                    "normal": "#/components/schemas/NormalUser",
-                    "admin": "#/components/schemas/AdminUser"
+                    "staff": "#/components/schemas/Staff",
+                    "admin": "#/components/schemas/Admin"
                   }
                 }
               }
@@ -197,13 +195,13 @@
         },
         "responses": {
           "200": {
-            "description": "Dynamic response payload",
+            "description": "Create user response",
             "content": {
               "application/json": {
                 "schema": {
+                  "type": "object",
                   "oneOf": [
                     {
-                      "type": "object",
                       "oneOf": [
                         {
                           "properties": {
@@ -220,7 +218,7 @@
                               "type": "string"
                             }
                           },
-                          "required": ["type", "telephone"]
+                          "required": ["telephone"]
                         },
                         {
                           "properties": {
@@ -237,20 +235,19 @@
                               "type": "string"
                             }
                           },
-                          "required": ["type", "address"]
+                          "required": ["address"]
                         }
                       ],
                       "discriminator": {
                         "propertyName": "subType",
                         "mapping": {
-                          "A": "#/components/schemas/NormalUserA",
-                          "B": "#/components/schemas/NormalUserB"
+                          "A": "#/components/schemas/NormalStaff",
+                          "B": "#/components/schemas/SupervisorStaff"
                         }
                       },
-                      "required": ["type", "subType"]
+                      "required": ["subType"]
                     },
                     {
-                      "type": "object",
                       "properties": {
                         "email": {
                           "type": "string"
@@ -268,8 +265,8 @@
                   "discriminator": {
                     "propertyName": "type",
                     "mapping": {
-                      "normal": "#/components/schemas/NormalUser",
-                      "admin": "#/components/schemas/AdminUser"
+                      "staff": "#/components/schemas/Staff",
+                      "admin": "#/components/schemas/Admin"
                     }
                   }
                 }
