@@ -51,7 +51,7 @@
     "lint-staged": "9.5.0",
     "prettier": "1.19.1",
     "redoc": "2.0.0-rc.8-1",
-    "redoc-cli": "0.9.3",
+    "redoc-cli": "0.9.4",
     "standard-version": "7.0.1",
     "supertest": "4.0.2",
     "swagger-combine": "1.0.0",
