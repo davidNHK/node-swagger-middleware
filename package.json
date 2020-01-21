@@ -52,7 +52,7 @@
     "prettier": "1.19.1",
     "redoc": "2.0.0-rc.8-1",
     "redoc-cli": "0.9.5",
-    "standard-version": "7.0.1",
+    "standard-version": "7.1.0",
     "supertest": "4.0.2",
     "swagger-combine": "1.0.0",
     "typescript": "3.7.5"
