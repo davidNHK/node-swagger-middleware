@@ -48,7 +48,7 @@
     "express": "4.17.1",
     "husky": "3.1.0",
     "jest": "24.9.0",
-    "lint-staged": "10.0.8",
+    "lint-staged": "10.0.9",
     "prettier": "1.19.1",
     "redoc": "2.0.0-rc.8-1",
     "redoc-cli": "0.9.7",
