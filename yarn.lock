@@ -912,6 +912,11 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.7.5.tgz#e19436e7f8e9b4601005d73673b6dc4784ffcc2f"
   integrity sha512-9fq4jZVhPNW8r+UYKnxF1e2HkDWOWKM5bC2/7c9wPV835I0aOrVbS/Hw/pWPk2uKrNXQqg9Z959Kz+IYDd5p3w==
 
+"@types/node@^13.11.1":
+  version "13.13.5"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.13.5.tgz#96ec3b0afafd64a4ccea9107b75bf8489f0e5765"
+  integrity sha512-3ySmiBYJPqgjiHA7oEaIo2Rzz0HrOZ7yrNO5HWyaE5q0lQ3BppDZ3N53Miz8bw2I7gh1/zir2MGVZBvpb1zq9g==
+
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/@types/normalize-package-data/-/normalize-package-data-2.4.0.tgz#e486d0d97396d79beedd0a6e33f4534ff6b4973e"
@@ -6673,10 +6678,10 @@ redent@^2.0.0:
     indent-string "^3.0.0"
     strip-indent "^2.0.0"
 
-redoc-cli@0.9.7:
-  version "0.9.7"
-  resolved "https://registry.yarnpkg.com/redoc-cli/-/redoc-cli-0.9.7.tgz#17ac68ae1e12144ba697b8a1421f8e6eb65fdb40"
-  integrity sha512-DSF89FotRZkxNXj77GRKJsgNRzvw9NqQMugw0Cr4wk3wgAMqf2RDRDX2AqnZCzXunJ10k7z++sG14dB0imMV/g==
+redoc-cli@0.9.8:
+  version "0.9.8"
+  resolved "https://registry.yarnpkg.com/redoc-cli/-/redoc-cli-0.9.8.tgz#18694937115d76b7abecb3da36a271d11930a504"
+  integrity sha512-JW7krzhX+P3qSjTvBMpTRjX/JHrnvHeIWcpZB4RaaC0qTL/DwcgA+IJNpiQ0+jV+bkHaPjHcT0T4pjWh+5VTaw==
   dependencies:
     chokidar "^3.0.2"
     handlebars "^4.1.2"
@@ -6686,16 +6691,17 @@ redoc-cli@0.9.7:
     node-libs-browser "^2.2.1"
     react "^16.8.6"
     react-dom "^16.8.6"
-    redoc "2.0.0-rc.24"
+    redoc "2.0.0-rc.29"
     styled-components "^4.3.2"
     tslib "^1.10.0"
     yargs "^13.3.0"
 
-redoc@2.0.0-rc.24:
-  version "2.0.0-rc.24"
-  resolved "https://registry.yarnpkg.com/redoc/-/redoc-2.0.0-rc.24.tgz#d255ab8cfb6286466877a9f6b706f4cfbcd09207"
-  integrity sha512-h82NZFDzTUgAEtd0st3D29EsrxO8bw+26xdX1Y0vtwlp6uiQUA44uZLpdBnOlcSWMipbZ75ra6uuBU2NHFNPGg==
+redoc@2.0.0-rc.29:
+  version "2.0.0-rc.29"
+  resolved "https://registry.yarnpkg.com/redoc/-/redoc-2.0.0-rc.29.tgz#533153c1f71522493b4fb245c4c781c5802be64f"
+  integrity sha512-G2PX4QG/XdNKqRvxPpszJdPPRcODJjkuGidjNr4m/eP04aoNjWpytcH1XxZUC7fVW6zBUtJTaktv1HnVF+2GmA==
   dependencies:
+    "@types/node" "^13.11.1"
     classnames "^2.2.6"
     decko "^1.2.0"
     dompurify "^2.0.8"
