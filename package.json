@@ -22,7 +22,7 @@
     "release": "standard-version --commit-all --message 'chore(production): %s\\n\\n[skip master-ci]' --no-verify"
   },
   "dependencies": {
-    "ajv": "^6.9.2",
+    "ajv": "^7.0.0",
     "ajv-keywords": "^3.4.1",
     "debug": "^4.1.1",
     "dot": "^1.1.2",
