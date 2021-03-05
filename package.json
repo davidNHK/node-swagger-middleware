@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "ajv": "^6.9.2",
-    "ajv-keywords": "^3.4.1",
+    "ajv-keywords": "^4.0.0",
     "debug": "^4.1.1",
     "dot": "^1.1.2",
     "lodash": "^4.17.11",
